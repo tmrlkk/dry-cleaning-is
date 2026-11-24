@@ -1,5 +1,6 @@
 from decimal import Decimal, ROUND_HALF_UP
-from typing import List, Dict
+from typing import List, Dict, Optional
+from loyalty_module import LoyaltyService
 
 class OrderItem:
     def __init__(self, item_type_id: int, quantity: int):
