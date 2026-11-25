@@ -65,7 +65,12 @@ class LoyaltyService:
         # Проверка: бонусов к списанию не больше, чем на балансе
         if bonus_to_use > current_balance:
             raise ValueError(f"Недостаточно бонусов. На балансе: {current_balance}")
-        
+
+            # ИСПРАВЛЕНО: проверка лимита 30% от суммы заказа
+        max_allowed = self.calculate_max_bonus_usage(order_total)
+        if bonus_to_use > max_allowed:
+            raise ValueError(f"Превышен лимит списания бонусов. Максимум: {max_allowed}")
+    
         discount_from_bonus = Decimal(bonus_to_use) * self.config.BONUS_TO_RUBLE
         remaining_total = (order_total - discount_from_bonus).quantize(
             Decimal('0.01'), rounding=ROUND_HALF_UP
