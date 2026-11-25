@@ -1,8 +1,8 @@
 import uuid
-from loyalty_module import LoyaltyService
 from decimal import Decimal
-from calculator_module import OrderCalculator, OrderItem
+from calculator_module import OrderCalculator, OrderItem, UnknownItemTypeError 
 from notification_module import NotificationService
+from loyalty_module import LoyaltyService
 
 class OrderService:
     """
@@ -45,6 +45,10 @@ class OrderService:
             
             return order
             
+        except UnknownItemTypeError as e:
+            print(f"[ОШИБКА СПРАВОЧНИКА] {e}")
+            print("Действие: проверьте тип вещи или добавьте его в справочник тарифов.")
+            return None
         except ValueError as ve:
             print(f"[ОШИБКА ВАЛИДАЦИИ] Не удалось создать заказ: {ve}")
             return None
