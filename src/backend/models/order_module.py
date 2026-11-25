@@ -1,11 +1,8 @@
 import uuid
 from loyalty_module import LoyaltyService
-
-import uuid
 from decimal import Decimal
 from calculator_module import OrderCalculator, OrderItem
 from notification_module import NotificationService
-from loyalty_module import LoyaltyService 
 
 class OrderService:
     """
