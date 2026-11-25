@@ -1,0 +1,22 @@
+dry-cleaning-is/
+│
+├── .github/                # Настройки CI/CD (GitHub Actions)
+├── docs/                   # Документация (ТЗ, HIPO, IDEF, руководства)
+│   ├── technical_spec.docx
+│   └── diagrams/
+├── src/                    # Исходный код
+│   ├── order/
+│   │   ├── order.py
+│   │   └── receipt.py
+│   ├── backend/            # Серверная часть (API, БД)
+│   │   ├── models/
+│   │   ├── controllers/
+│   │   └── services/
+│   ├── frontend/           # Клиентская часть (UI)
+│   │   ├── views/
+│   │   └── components/
+│   └── database/           # Скрипты миграций БД
+├── tests/                  # Модульные и интеграционные тесты
+├── .gitignore              # Игнорируемые файлы
+├── README.md               # Описание проекта
+└── requirements.txt        # Зависимости (если Python) / *.sln (если C#)
